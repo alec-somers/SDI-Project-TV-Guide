@@ -84,8 +84,18 @@ form {
 .movie-list {
   flex-direction: column;
   list-style-type: none;
+  justify-content: flex-start;
+  gap: 35px;
 }
 
-p {
-  display: inline;
+.show-image {
+  height: 300px;
+  width: 215px;
+  margin-right: 20px;
+  border: 5px solid rgb(105, 105, 105);
+  border-radius: 10px;
+}
+
+.top-show-item {
+  max-width: 500px;
 }
