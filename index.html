@@ -13,7 +13,7 @@
 
   <body>
     <header class="header-container flex">
-      <img class="header-logo" src="../img/logo.png" />
+      <img class="header-logo" src="./img/logo.png" alt="TV Guide Logo" />
 
       <nav class="header-nav flex">
         <button>
@@ -28,7 +28,7 @@
       <form class="main-form flex">
         <label class="form-label">
           <div class="searchbar-header">FIND YOUR SHOW</div>
-          <input class="searchbar" type="text" />
+          <input class="searchbar" type="text" name="search-input" placeholder="Type Here" />
         </label>
         <button class="search-button" type="submit">SEARCH</button>
       </form>
@@ -39,6 +39,7 @@
         <ul class="movie-list flex"></ul>
       </section>
     </main>
+    <script src="/scripts/index.js"></script>
   </body>
-  <script src="/scripts/index.js"></script>
+
 </html>
