@@ -1,43 +1,49 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>TV Guide</title>
-    <link rel="stylesheet" href="/styles/index.css">
-</head>
+    <link rel="stylesheet" href="/styles/index.css" />
+  </head>
 
-<body>
-<header class="header-container flex">
-    <h1 class="header-h1">TV Guide</h1>
+  <body>
+    <header class="header-container flex">
+      <img class="header-logo" src="../img/logo.png" />
 
-    <nav class="header-nav">
+      <nav class="header-nav flex">
         <button>
-            <a class="header-links" href="#">Surprise!</a>
+          <a class="header-links" href="#">Surprise!</a>
         </button>
         <button>
-            <a class="header-links" href="#">View All Shows</a>
+          <a class="header-links" href="#">View All Shows</a>
         </button>
-    </nav>
-</header>
-<main class="main-container flex">
-    <form class="main-form flex">
+      </nav>
+    </header>
+    <main class="main-container flex">
+      <form class="main-form flex">
         <label class="form-label">
-            <div class="searchbar-header">
-                SEARCH
-            </div>
-            <input type="text"/>
+          <div class="searchbar-header">FIND YOUR SHOW</div>
+          <input class="searchbar" type="text" />
         </label>
-        <button type="submit">SEARCH</button>
-    </form>
+        <button class="search-button" type="submit">SEARCH</button>
+      </form>
 
-    <section class="top-shows-container flex">
+      <section class="top-shows-container flex">
         <h1>BINGE-WORTHY!</h1>
 
-        <ul class="movie-container flex"></ul>
-    </section>
-</main>
-</body>
+        <ul class="movie-container flex">
+          <li>Some text here</li>
+          <li>Some text here</li>
+          <li>Some text here</li>
+          <li>Some text here</li>
+          <li>Some text here</li>
+        </ul>
+      </section>
+    </main>
+  </body>
 </html>
