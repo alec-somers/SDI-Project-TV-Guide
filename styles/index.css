@@ -81,6 +81,11 @@ form {
   align-self: flex-start;
 }
 
-.movie-container {
+.movie-list {
   flex-direction: column;
+  list-style-type: none;
+}
+
+p {
+  display: inline;
 }
