@@ -24,6 +24,7 @@ img {
 
 h1 {
   color: blue;
+  align-self: center;
 }
 
 nav {
@@ -77,6 +78,7 @@ form {
 }
 
 .top-shows-container {
+  margin-top: 50px;
   flex-direction: column;
   align-self: flex-start;
 }
@@ -87,6 +89,7 @@ form {
   list-style-type: none;
   justify-content: center;
   gap: 35px;
+  padding: 0;
 }
 
 .show-image {
@@ -98,5 +101,5 @@ form {
 }
 
 .top-show-item {
-  max-width: 500px;
+  width: 700px;
 }
