@@ -5,12 +5,13 @@ submitForm.addEventListener("submit", function (event) {
   console.log(document.querySelector(".searchbar").value);
 });
 
+//Function for displaying the first five shows on the homepage
 function displayTopFiveShows(shows) {
   for (let i = 0; i < 5; i++) {
     let showName = shows[i].name;
     let showSummary = shows[i].summary;
     let newLi = document.createElement("li");
-    newLi.innerHTML = `<img class="show-image" src=${shows[i].image.medium}></img>
+    newLi.innerHTML = `<img class="show-image" src=${shows[i].image.medium} alt="${showName}"/>
     <div class="text-container"><p>Try ${showName}!</p>
     ${showSummary}</div>`;
     newLi.setAttribute("class", "top-show-item flex");
@@ -18,6 +19,7 @@ function displayTopFiveShows(shows) {
   }
 }
 
+//Fetch for the
 fetch("https://api.tvmaze.com/shows")
   .then((showList) => showList.json())
   .then((jsonShowList) => {
