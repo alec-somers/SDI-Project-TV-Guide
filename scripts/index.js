@@ -12,7 +12,7 @@ function displayTopTenShows(shows) {
     let showName = topRatedShows[i].name;
     let showSummary = topRatedShows[i].summary;
     let newLi = document.createElement("li");
-    newLi.innerHTML = `<img class="show-image" src=${topRatedShows[i].image.medium} alt="${showName}"/>
+    newLi.innerHTML = `<a href="show-info-page.html"><img class="show-image" src=${topRatedShows[i].image.medium} alt="${showName}"/></a>
     <div class="text-container"><p>Try ${showName}!</p>
     ${showSummary}</div>`;
     newLi.setAttribute("class", "top-show-item flex");

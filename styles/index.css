@@ -41,9 +41,15 @@ header button {
   text-decoration: none;
 }
 
-.header-links:hover {
+.back-to-home {
+  font-size: 17px;
+}
+
+a:hover {
   cursor: pointer;
 }
+
+
 
 .main-form {
   flex-direction: column;
