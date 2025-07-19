@@ -28,5 +28,3 @@ fetch("https://api.tvmaze.com/shows")
     displayTopTenShows(jsonShowList);
   })
   .catch((error) => console.error(error));
-
-exports.module = {displayTopTenShows};
