@@ -7,7 +7,7 @@ submitForm.addEventListener("submit", function (event) {
 
 //Function for displaying the first five shows on the homepage
 function displayTopTenShows(shows) {
-  const topRatedShows = shows.filter( (show) => show.rating.average > 8.8)
+  const topRatedShows = shows.filter( (show) => show.rating.average >= 8.8)
   for (let i = 0; i < topRatedShows.length; i++) {
     let showName = topRatedShows[i].name;
     let showSummary = topRatedShows[i].summary;
@@ -18,9 +18,10 @@ function displayTopTenShows(shows) {
     newLi.setAttribute("class", "top-show-item flex");
     document.querySelector(".movie-list").appendChild(newLi);
   }
+  console.log(topRatedShows);
 }
 
-//Fetch for the
+//Fetch for the top ten shows to display on the index homepage
 fetch("https://api.tvmaze.com/shows")
   .then((showList) => showList.json())
   .then((jsonShowList) => {
