@@ -18,7 +18,6 @@ function displayTopTenShows(shows) {
     newLi.setAttribute("class", "top-show-item flex");
     document.querySelector(".movie-list").appendChild(newLi);
   }
-  console.log(topRatedShows);
 }
 
 //Fetch for the top ten shows to display on the index homepage
@@ -28,3 +27,5 @@ fetch("https://api.tvmaze.com/shows")
     displayTopTenShows(jsonShowList);
   })
   .catch((error) => console.error(error));
+
+exports.module = {displayTopTenShows};
