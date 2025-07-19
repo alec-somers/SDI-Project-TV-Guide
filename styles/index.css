@@ -82,9 +82,10 @@ form {
 }
 
 .movie-list {
-  flex-direction: column;
+  /*flex-direction: column;*/
+  flex-wrap: wrap;
   list-style-type: none;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 35px;
 }
 
