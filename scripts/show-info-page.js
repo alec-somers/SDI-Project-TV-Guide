@@ -21,7 +21,7 @@ class Show {
         const summary = document.querySelector('.info-page-summary')
         //Get rid of the built-in <p> tags
         show.summary = show.summary.slice(3, show.summary.length - 4);
-        summary.innerText = show.summary;
+        summary.innerHTML = show.summary;
 
         //set the rating on display
         const ratingContainer = document.querySelector('.info-page-rating')
