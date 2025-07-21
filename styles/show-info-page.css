@@ -1,0 +1,14 @@
+main {
+    flex-direction: column;
+    padding: 5px;
+}
+
+
+
+
+.main-image {
+    height: 530px;
+    width: 445px;
+    border: black solid 5px;
+    margin-top: 30px;
+}
