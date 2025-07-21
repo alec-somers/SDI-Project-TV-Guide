@@ -16,6 +16,15 @@ class Show {
 
     }
 
+    setCast(castObjectsArray) {
+        this.cast = castObjectsArray;
+    }
+
+    setCrew(crewObjectsArray) {
+        this.crew = crewObjectsArray;
+    }
+
+
     displayShowInfo() {
         //set the image on display
         const imageContainer = document.querySelector(".main-image");
@@ -48,6 +57,10 @@ fetch(`https://api.tvmaze.com/shows/${showId}`)
     .then( result => result.json())
     .then( showObject => {
 
+        //Allowing the image to display before the fetch for cast and crew is called
+        const currentShow = new Show(showObject);
+        currentShow.displayShowInfo();
+
         //Fetch the show's cast and crew. **Both cast and crew are different endpoints**
         fetch(`https://api.tvmaze.com/shows/${showId}/cast`)
             .then( response => response.json())
@@ -57,8 +70,12 @@ fetch(`https://api.tvmaze.com/shows/${showId}`)
                 fetch("https://api.tvmaze.com/shows/1/crew")
                     .then( response => response.json() )
                     .then( crewObjects => {
-                        const currentShow = new Show(showObject, castObjects, crewObjects);
-                        currentShow.displayShowInfo();
+                        //Give our show object the cast and crew information
+                        currentShow.setCast(castObjects);
+                        currentShow.setCrew(crewObjects);
+
+
+
                     })
                     .catch(() => new Error("Could not fetch crew info"))
             })
