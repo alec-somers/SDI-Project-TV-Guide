@@ -24,7 +24,6 @@ class Show {
         this.crew = crewObjectsArray;
     }
 
-
     displayShowInfo() {
         //set the image on display
         const imageContainer = document.querySelector(".main-image");
@@ -63,7 +62,24 @@ class Show {
         castAndCrewList.appendChild(starsListItem);
 
     }
+
+    fetchSeasonsList() {
+        //Start the fetch for the list of all season for this instance of Show
+        fetch(`https://api.tvmaze.com/shows/${showId}/seasons`)
+            .then( result => result.json())
+            .then( seasons => {
+                //Selecting the html element we want to put our seasons labels in
+                const seasonsList = document.querySelector('.seasons-list');
+                for(let i = 0; i < seasons.length; i++){
+                    const newOption = document.createElement('option');
+                    newOption.setAttribute('value', `Season-${seasons[i].number}`)
+                    newOption.innerText = "Season " + (i + 1);
+                    seasonsList.appendChild(newOption);
+                }
+            })
+    }
 }
+
 
 //Fetch the specific show from the API using the show's id
 fetch(`https://api.tvmaze.com/shows/${showId}`)
@@ -90,7 +106,8 @@ fetch(`https://api.tvmaze.com/shows/${showId}`)
                         //Use the displayCastAndCrew function to put it onto our page
                         currentShow.displayCastAndCrew();
 
-
+                        //Call the fetchSeasonsList function;
+                        currentShow.fetchSeasonsList();
                     })
                     .catch(() => new Error("Could not fetch crew info"))
             })
@@ -98,4 +115,6 @@ fetch(`https://api.tvmaze.com/shows/${showId}`)
 
     })
     .catch( error => console.error(error));
+
+
 

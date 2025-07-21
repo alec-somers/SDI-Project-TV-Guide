@@ -30,3 +30,22 @@ span {
 .info-page-list-item {
     margin-bottom: 10px;
 }
+
+.seasons-label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+select {
+    width: 200px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    /*appearance: none;*/
+}
+
+
+
+option {
+    color: black;
+}
