@@ -11,10 +11,10 @@ class Show {
 
     }
 
-    displayShowInfo() {
+    static displayShowInfo(show) {
         const mainContainer = document.querySelector('main');
         const newImage = document.createElement('img');
-        newImage.setAttribute('src', this.image);
+        newImage.setAttribute('src', show.image);
         newImage.setAttribute('class', 'main-image')
         mainContainer.appendChild(newImage);
     }
@@ -24,5 +24,5 @@ fetch(`https://api.tvmaze.com/shows/${showId}`)
     .then( result => result.json())
     .then( jsonResult => {
         let show = new Show(jsonResult);
-        show.displayShowInfo();
+        Show.displayShowInfo(show);
     })
