@@ -3,6 +3,10 @@ main {
     padding: 5px;
 }
 
+span {
+    margin-left: 8px;
+}
+
 .main-image {
     height: 530px;
     width: 445px;
@@ -15,5 +19,10 @@ main {
 }
 
 .show-stats-container {
-    margin-top: 11px;
+    margin-top: 20px;
 }
+
+.inline-h3 {
+    display: inline;
+}
+
