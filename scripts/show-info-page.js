@@ -5,18 +5,28 @@ class Show {
     constructor(showObject) {
         this.name = showObject.name;
         this.summary = showObject.summary;
-        this.rating = showObject.rating;
+        this.rating = showObject.rating.average;
         this.image = showObject.image.original;
         this.id = showObject.id;
 
     }
 
     static displayShowInfo(show) {
-        const mainContainer = document.querySelector('main');
-        const newImage = document.createElement('img');
-        newImage.setAttribute('src', show.image);
-        newImage.setAttribute('class', 'main-image')
-        mainContainer.appendChild(newImage);
+        //set the image on display
+        const imageContainer = document.querySelector(".main-image");
+        imageContainer.setAttribute('src', show.image);
+        imageContainer.setAttribute("alt", show.name);
+
+        //set the summary on display
+        const summary = document.querySelector('.info-page-summary')
+        //Get rid of the built-in <p> tags
+        show.summary = show.summary.slice(3, show.summary.length - 4);
+        summary.innerText = show.summary;
+
+        //set the rating on display
+        const ratingContainer = document.querySelector('.info-page-rating')
+        ratingContainer.innerText = `${show.rating} out of 10`;
+
     }
 }
 

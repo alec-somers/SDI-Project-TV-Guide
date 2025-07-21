@@ -3,12 +3,17 @@ main {
     padding: 5px;
 }
 
-
-
-
 .main-image {
     height: 530px;
     width: 445px;
     border: black solid 5px;
-    margin-top: 30px;
+    margin: 20px;
+}
+
+.show-container {
+    align-items: flex-start;
+}
+
+.show-stats-container {
+    margin-top: 11px;
 }
