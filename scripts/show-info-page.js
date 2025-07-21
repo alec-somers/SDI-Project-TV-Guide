@@ -48,6 +48,19 @@ class Show {
     }
 
     displayCastAndCrew() {
+        const castAndCrewList = document.querySelector('.cast-and-crew-list');
+        const creatorListItem = document.createElement("li")
+        creatorListItem.setAttribute('class', 'info-page-list-item');
+        creatorListItem.innerText = `Creator: ${this.crew[0].person.name}`
+
+        //make and add the list item containing the stars of the show
+        const starsListItem = document.createElement('li');
+        starsListItem.setAttribute('class', 'info-page-list-item');
+        starsListItem.innerText = `Starring: ${this.cast[0].person.name}`;
+
+        //Add both to the html ul element
+        castAndCrewList.appendChild(creatorListItem);
+        castAndCrewList.appendChild(starsListItem);
 
     }
 }
@@ -67,13 +80,15 @@ fetch(`https://api.tvmaze.com/shows/${showId}`)
             .then( castObjects => {
 
                 //Nested fetch to get the crew (director/writer at minimum)
-                fetch("https://api.tvmaze.com/shows/1/crew")
+                fetch(`https://api.tvmaze.com/shows/${showId}/crew`)
                     .then( response => response.json() )
                     .then( crewObjects => {
                         //Give our show object the cast and crew information
                         currentShow.setCast(castObjects);
                         currentShow.setCrew(crewObjects);
 
+                        //Use the displayCastAndCrew function to put it onto our page
+                        currentShow.displayCastAndCrew();
 
 
                     })
