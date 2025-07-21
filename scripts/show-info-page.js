@@ -1,14 +1,18 @@
-
+//Grab the show id that is passed into the URL parameters
 const urlParams = new URLSearchParams(window.location.search);
 const showId = urlParams.get('id');
+
+
 class Show {
-    constructor(showObject) {
+    constructor(showObject, castObjectsArray=[], crewObjectsArray=[]) {
         this.name = showObject.name;
         this.summary = showObject.summary;
         this.rating = showObject.rating.average;
         this.image = showObject.image.original;
         this.id = showObject.id;
         this.genres = showObject.genres;
+        this.cast = castObjectsArray;
+        this.crew = crewObjectsArray;
 
     }
 
@@ -34,7 +38,7 @@ class Show {
 
     }
 
-    displayCast() {
+    displayCastAndCrew() {
 
     }
 }
@@ -43,6 +47,23 @@ class Show {
 fetch(`https://api.tvmaze.com/shows/${showId}`)
     .then( result => result.json())
     .then( showObject => {
-        let show = new Show(showObject);
-        show.displayShowInfo();
+
+        //Fetch the show's cast and crew. **Both cast and crew are different endpoints**
+        fetch(`https://api.tvmaze.com/shows/${showId}/cast`)
+            .then( response => response.json())
+            .then( castObjects => {
+
+                //Nested fetch to get the crew (director/writer at minimum)
+                fetch("https://api.tvmaze.com/shows/1/crew")
+                    .then( response => response.json() )
+                    .then( crewObjects => {
+                        const currentShow = new Show(showObject, castObjects, crewObjects);
+                        currentShow.displayShowInfo();
+                    })
+                    .catch(() => new Error("Could not fetch crew info"))
+            })
+            .catch( () => new Error("Could not fetch cast info"))
+
     })
+    .catch( error => console.error(error));
+
