@@ -72,7 +72,7 @@ class Show {
                 const seasonsList = document.querySelector('.seasons-list');
                 for(let i = 0; i < seasons.length; i++){
                     const newOption = document.createElement('option');
-                    newOption.setAttribute('value', `Season-${seasons[i].number}`)
+                    newOption.setAttribute('value', seasons[i].number)
                     newOption.innerText = "Season " + (i + 1);
                     seasonsList.appendChild(newOption);
                 }
@@ -123,5 +123,5 @@ fetch(`https://api.tvmaze.com/shows/${showId}`)
     })
     .catch( error => console.error(error));
 
-
+module.exports = { Show };
 
