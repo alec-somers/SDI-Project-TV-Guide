@@ -47,10 +47,10 @@
                     <span class="info-page-rating"></span>
                 </div>
                 <div class="dropdown-menu-container">
-                    <form action="show-info-page.html" method="get">
+                    <form target="_blank" class="seasons-form" action="seasons.html" method="GET">
                         <label class="seasons-label" for="seasons">Seasons</label>
-                        <select class="seasons-list" id="seasons" name="seasons-list">
-                            <option class="placeholder"></option>
+                        <select class="seasons-list" id="seasons" name="selected-season">
+                            <option class="placeholder" disabled selected>Seasons</option>
                         </select>
                     </form>
                 </div>
@@ -58,7 +58,7 @@
         </div>
     </main>
 
-<script src="scripts/show-info-page.js"></script>
+<script defer src="scripts/show-info-page.js"></script>
 </body>
 
 </html>

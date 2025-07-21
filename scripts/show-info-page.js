@@ -76,6 +76,13 @@ class Show {
                     newOption.innerText = "Season " + (i + 1);
                     seasonsList.appendChild(newOption);
                 }
+                //Add event listener to seasons drop down menu that navigates the user to the new page with a display of all
+                //episodes in that season
+                const seasonsSelectMenu = document.querySelector('.seasons-list');
+                seasonsSelectMenu.addEventListener("change", function() {
+                    document.querySelector(".seasons-form").submit();
+                });
+
             })
     }
 }
