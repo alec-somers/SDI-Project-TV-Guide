@@ -63,7 +63,9 @@ export default class Show {
 
     }
 
+    //Fetches and displays the seasons list on the seasons.html page
     fetchSeasonsList() {
+
         //Start the fetch for the list of all season for this instance of Show
         fetch(`https://api.tvmaze.com/shows/${showId}/seasons`)
             .then( result => result.json())
@@ -72,17 +74,11 @@ export default class Show {
                 const seasonsList = document.querySelector('.seasons-list');
                 for(let i = 0; i < seasons.length; i++){
                     const newOption = document.createElement('option');
-                    newOption.setAttribute('value', `${this.name} ${seasons[i].number}`)
+                    newOption.setAttribute('value', seasons[i].number)
                     newOption.innerText = "Season " + (i + 1);
                     seasonsList.appendChild(newOption);
                 }
-                //Add event listener to seasons drop down menu that navigates the user to the new page with a display of all
-                //episodes in that season
-                const seasonsSelectMenu = document.querySelector('.seasons-list');
-                seasonsSelectMenu.addEventListener("change", function(event) {
-                    document.querySelector(".seasons-form").submit();
-                    console.log(event);
-                });
+
 
             })
     }
@@ -97,6 +93,20 @@ fetch(`https://api.tvmaze.com/shows/${showId}`)
         //Allowing the image to display before the fetch for cast and crew is called
         const currentShow = new Show(showObject);
         currentShow.displayShowInfo();
+
+
+        //Add event listener to seasons drop down menu that navigates the user to the new page with a display of all
+        //episodes in that season. Had to put here for the currentShow object to be in scope
+                const seasonsSelectMenu = document.querySelector('.seasons-list');
+                seasonsSelectMenu.addEventListener("change", function(event) {
+                    const params = new URLSearchParams();
+                    params.append('showName', currentShow.name);
+                    params.append('selected-season', event.target.value);
+                    window.location.href = `seasons.html?${params.toString()}`;
+                    event.preventDefault()
+
+                });
+
 
         //Fetch the show's cast and crew. **Both cast and crew are different endpoints**
         fetch(`https://api.tvmaze.com/shows/${showId}/cast`)
@@ -123,5 +133,6 @@ fetch(`https://api.tvmaze.com/shows/${showId}`)
 
     })
     .catch( error => console.error(error));
+
 
 
