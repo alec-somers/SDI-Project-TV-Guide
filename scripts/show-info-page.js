@@ -3,7 +3,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const showId = urlParams.get('id');
 
 
-export default class Show {
+class Show {
     constructor(showObject, castObjectsArray=[], crewObjectsArray=[]) {
         this.name = showObject.name;
         this.summary = showObject.summary;
