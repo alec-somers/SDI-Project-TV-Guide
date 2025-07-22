@@ -3,7 +3,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const showId = urlParams.get('id');
 
 
-class Show {
+export default class Show {
     constructor(showObject, castObjectsArray=[], crewObjectsArray=[]) {
         this.name = showObject.name;
         this.summary = showObject.summary;
@@ -72,15 +72,16 @@ class Show {
                 const seasonsList = document.querySelector('.seasons-list');
                 for(let i = 0; i < seasons.length; i++){
                     const newOption = document.createElement('option');
-                    newOption.setAttribute('value', seasons[i].number)
+                    newOption.setAttribute('value', `${this.name} ${seasons[i].number}`)
                     newOption.innerText = "Season " + (i + 1);
                     seasonsList.appendChild(newOption);
                 }
                 //Add event listener to seasons drop down menu that navigates the user to the new page with a display of all
                 //episodes in that season
                 const seasonsSelectMenu = document.querySelector('.seasons-list');
-                seasonsSelectMenu.addEventListener("change", function() {
+                seasonsSelectMenu.addEventListener("change", function(event) {
                     document.querySelector(".seasons-form").submit();
+                    console.log(event);
                 });
 
             })
@@ -123,5 +124,4 @@ fetch(`https://api.tvmaze.com/shows/${showId}`)
     })
     .catch( error => console.error(error));
 
-module.exports = { Show };
 
