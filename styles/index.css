@@ -123,4 +123,10 @@ form {
 
 .top-show-item {
   width: 700px;
+  border: black solid 5px;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #8f8f8f, #363f4a);
+  padding: 4px;
 }
+
+
