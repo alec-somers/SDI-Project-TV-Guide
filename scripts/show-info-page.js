@@ -100,7 +100,7 @@ fetch(`https://api.tvmaze.com/shows/${showId}`)
                 const seasonsSelectMenu = document.querySelector('.seasons-list');
                 seasonsSelectMenu.addEventListener("change", function(event) {
                     const params = new URLSearchParams();
-                    params.append('showName', currentShow.name);
+                    params.append('showId', currentShow.id);
                     params.append('selected-season', event.target.value);
                     window.location.href = `seasons.html?${params.toString()}`;
                     event.preventDefault()
