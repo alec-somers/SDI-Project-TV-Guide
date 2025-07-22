@@ -95,15 +95,16 @@ form {
 
 }
 
-.movie-list {
+.show-list {
   /*flex-direction: column;*/
   flex-wrap: wrap;
   list-style-type: none;
-  justify-content: center;
+  justify-content: space-around;
   gap: 35px;
   border: black solid 5px;
   width: 90%;
-  padding: 30px 30px;
+  padding: 25px 25px;
+  background-color: #3f5380;
 }
 
 .show-image {

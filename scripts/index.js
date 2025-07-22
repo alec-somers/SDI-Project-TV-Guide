@@ -1,9 +1,7 @@
-const submitForm = document.querySelector(".main-form");
-submitForm.addEventListener("submit", function (event) {
-  // event.preventDefault();
-  console.log(event);
-  console.log(document.querySelector(".searchbar").value);
-});
+// const submitForm = document.querySelector(".main-form");
+// submitForm.addEventListener("submit", function (event) {
+//
+// });
 
 //Function for displaying the first five shows on the homepage
 function displayTopTenShows(shows) {
@@ -18,7 +16,7 @@ function displayTopTenShows(shows) {
     <div class="text-container"><p>Try ${showName}!</p>
     ${showSummary}</div>`;
     newLi.setAttribute("class", "top-show-item flex");
-    document.querySelector(".movie-list").appendChild(newLi);
+    document.querySelector(".show-list").appendChild(newLi);
   }
 }
 
