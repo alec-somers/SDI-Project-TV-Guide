@@ -1,7 +1,3 @@
-// const submitForm = document.querySelector(".main-form");
-// submitForm.addEventListener("submit", function (event) {
-//
-// });
 
 //Function for displaying the first five shows on the homepage
 function displayTopTenShows(shows) {
