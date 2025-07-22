@@ -27,7 +27,7 @@ img {
 }
 
 h1 {
-  color: blue;
+  font-size: 3rem;
   align-self: center;
 }
 
@@ -104,7 +104,15 @@ form {
   border: black solid 5px;
   width: 90%;
   padding: 25px 25px;
-  background-color: #3f5380;
+  /*background-color: #3f5380;*/
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  background: linear-gradient(
+          to right bottom,
+          rgba(43, 43, 43, 0.4),
+          rgba(255, 117, 117, 0.2)
+  );
 }
 
 .show-image {
@@ -127,6 +135,11 @@ form {
   border-radius: 10px;
   background: linear-gradient(45deg, #8f8f8f, #363f4a);
   padding: 4px;
+  box-shadow:
+          0 10px 20px rgba(0, 0, 0, 0.2),
+          0 6px 6px rgba(0, 0, 0, 0.15),
+          0 0 100px -10px rgba(0, 0, 0, 0.3);
+
 }
 
 
