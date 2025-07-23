@@ -1,4 +1,4 @@
-// import Show from './show-info-page.js';
+
 
 //Grab the selected show season that was passed from the form in show-info-page
 const urlParams = new URLSearchParams(window.location.search);
