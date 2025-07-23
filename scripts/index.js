@@ -1,5 +1,5 @@
 
-//Function for displaying the first five shows on the homepage
+//Function for displaying the top ten shows on the homepage
 function displayTopTenShows(shows) {
   const topRatedShows = shows.filter( (show) => show.rating.average >= 8.8)
   for (let i = 0; i < topRatedShows.length; i++) {
